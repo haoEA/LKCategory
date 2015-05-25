@@ -139,22 +139,21 @@
 /**
  *  把一张图片按照指定的宽度等比例缩放
  */
-- (UIImage)scaleImgWithWidth:(CGFloat)width
+- (UIImage *)scaleImgWithWidth:(CGFloat)width
 {
-    CGFloat scale = size.width / width;
+    // 计算原图和目标图的宽高比
+    CGFloat scale = self.size.width / width;
+    // 计算目标高度
+    CGFloat h = self.size.height / scale;
     
-    CGFloat h = size.height / scale;
-
+    // 生成新图
     CGSize size = CGSizeMake(width, h);
-    
     UIGraphicsBeginImageContext(size);
-    
-    drawInRect(CGRect(origin: CGPointZero, size: size));
+    [self drawInRect:CGRectMake(0, 0, width, h)];
     
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    
     UIGraphicsEndImageContext();
-    
     return img;
 }
+
 @end

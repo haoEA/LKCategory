@@ -47,5 +47,5 @@
 /**
  *  把一张图片按照指定的宽度等比例缩放
  */
-- (UIImage)scaleImgWithWidth:(CGFloat)width;
+- (UIImage *)scaleImgWithWidth:(CGFloat)width;
 @end
